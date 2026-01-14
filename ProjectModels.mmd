@@ -1,0 +1,111 @@
+classDiagram
+    %% Core Academic & Scheduling Module
+    class Semester {
+        +String id
+        +String name
+        +LocalDate startDate
+        +LocalDate endDate
+        +addSemester(name, start, end)
+        +updateSemester(id, name, start, end)
+        +deleteSemester(id)
+        +selectSemester(semester)
+    }
+
+    class Course {
+        +String id
+        +String semesterId
+        +String userCourseId
+        +String name
+        +String teacher
+        +String room
+        +List daysOfWeek
+        +int frequencyWeeks
+        +LocalTime startTime
+        +LocalTime endTime
+        +int color
+        +addCourse(name, room, days, ...)
+        +updateCourse(id, name, ...)
+        +deleteCourse(id)
+    }
+
+    class UserEvent {
+        +String id
+        +String semesterId
+        +String courseId
+        +String title
+        +String description
+        +EventType type
+        +LocalDate date
+        +LocalTime startTime
+        +LocalTime endTime
+        +Boolean isCompleted
+        +int color
+        +addUserEvent(title, type, date, ...)
+        +updateUserEvent(title, type, date, ...)
+        +toggleTaskCompletion(id, completed)
+        +deleteUserEvent(id)
+    }
+
+    class EventType {
+        <<enumeration>>
+        COURSE
+        HOMEWORK
+        EXAM
+        CUSTOM
+    }
+
+    %% University Directory Module
+    class Campus {
+        +String id
+        +String name
+        +String address
+        +getBuildings(campusId)
+    }
+
+    class Building {
+        +String id
+        +String campusId
+        +String name
+        +getRooms(buildingId)
+    }
+
+    class Room {
+        +String id
+        +String buildingId
+        +String name
+        +String floor
+    }
+
+    class Faculty {
+        +String id
+        +String name
+        +String description
+        +getStudyPrograms(facultyId)
+    }
+
+    class StudyProgram {
+        +String id
+        +String facultyId
+        +String name
+        +getLecturers(programId)
+    }
+
+    class Lecturer {
+        +String id
+        +String programId
+        +String name
+        +String nip
+        +String email
+    }
+
+    %% Relationships
+    Semester "1" --> "*" Course : contains
+    Semester "1" --> "*" UserEvent : belongs
+    Course "1" --> "*" UserEvent : linked
+    UserEvent ..> EventType : category
+
+    Campus "1" --> "*" Building : has
+    Building "1" --> "*" Room : contains
+
+    Faculty "1" --> "*" StudyProgram : has
+    StudyProgram "1" --> "*" Lecturer : employs

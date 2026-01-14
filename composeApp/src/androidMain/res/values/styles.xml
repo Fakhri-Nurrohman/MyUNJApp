@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MyUNJ" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Use the wrapper with insets to ensure the icon isn't too big -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <!-- Main background color for the splash screen -->
+        <item name="android:windowSplashScreenBackground">#FFFFFF</item>
+    </style>
+</resources>

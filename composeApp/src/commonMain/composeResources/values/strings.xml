@@ -1,0 +1,7 @@
+<resources>
+    <string name="nav_home">Home</string>
+    <string name="nav_tasks">Tasks</string>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_info">Info</string>
+    <string name="nav_settings">Settings</string>
+</resources>

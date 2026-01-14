@@ -1,0 +1,16 @@
+package com.fakhrinurrohman.myunjapp.data
+
+import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
+
+lateinit var appContext: Context
+
+actual fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
+    val dbFile = appContext.getDatabasePath("schedule.db")
+    return Room.databaseBuilder<AppDatabase>(
+        context = appContext,
+        name = dbFile.absolutePath
+    )
+    .fallbackToDestructiveMigration(dropAllTables = true)
+}

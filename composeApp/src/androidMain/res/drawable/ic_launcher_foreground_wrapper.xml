@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 1. The Background Layer -->
+    <item>
+        <color android:color="#FFFFFF" />
+    </item>
+    <!-- 2. The Logo Layer with Insets (Padding) -->
+    <item
+        android:drawable="@drawable/unj_logo_512_px_1"
+        android:left="32dp"
+        android:right="32dp"
+        android:top="32dp"
+        android:bottom="32dp" />
+</layer-list>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 1. Black Background (Drawn first) -->
+    <item android:drawable="@android:color/black" />
+    
+    <!-- 2. Centered Logo (Drawn on top of background) -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/unj_logo_512_px_1" />
+    </item>
+</layer-list>
