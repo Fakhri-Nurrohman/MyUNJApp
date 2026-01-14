@@ -3,6 +3,9 @@ name: Build & Release Debug APK
 on:
   workflow_dispatch: # Allows you to trigger this manually from the Actions tab
 
+permissions:
+  contents: write # This is required to create a release
+
 jobs:
   build:
     runs-on: ubuntu-latest
